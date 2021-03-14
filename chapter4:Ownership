@@ -1,0 +1,25 @@
+Chapter 4:Ownership
+
+If a type implements the Copy trait, an older variable is still usable after assignment. 
+
+Example of types with copy trait:
+All the integer types, such as u32.
+The Boolean type, bool, with values true and false.
+All the floating point types, such as f64.
+The character type, char.
+Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
+
+Referencing and Borrowing
+
+eg.
+
+fn main() {
+    let s = String::from("hello");
+
+    change(&s);
+}
+
+fn change(some_string: &String) {
+    some_string.push_str(", world");
+}
+This will lead to error as we are not allowed to modify something we have a reference to.
