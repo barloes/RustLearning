@@ -1,0 +1,52 @@
+Chapter 6: Option<t> and match
+
+enum that can encode the concept of a value being present or absent
+eg.
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+you have to convert an Option<T> to a T before you can perform T operations with it. 
+Generally, this helps catch one of the most common issues with null
+eg.
+    let y: Option<i8> = Some(5);
+
+this will not compile as Rust doesn’t understand how to add an i8 and an Option<i8>, because they’re different types.
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+        match x {
+            None => None,
+            Some(i) => Some(i + 1),
+        }
+    }
+
+
+Match
+
+eg.
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+
+match that allows you to compare a value against a series of patterns and then execute code based on which pattern matches.
+Similar to switch or if statements in c++
+return the coin value based on the type. if coin is penny return 1;
+
+if Let
+eg.
+if let Some(3) = some_u8_value {
+        println!("three");
+    }
