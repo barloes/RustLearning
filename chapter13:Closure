@@ -1,0 +1,60 @@
+Chapter 13:Closures
+
+Around the same as function but simplified form?
+Closures are functions that can capture the enclosing environment.They can also infer the types.
+
+eg.fn add_one (x: u32) -> u32 {
+    x+1
+}
+
+versus
+
+add_one_closure = |x| x+1;
+
+The trait bounds on T specify that it’s a closure by using the Fn trait
+
+eg.
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    calculation: T,
+    value: Option<u32>,
+}
+
+Any closure we want to store in the calculation field must have one u32 parameter (specified within the parentheses after Fn) and must return a u32
+
+FnOnce consumes the variables it captures from its enclosing scope, known as the closure’s environment. To consume the captured variables, the closure must take ownership of these variables and move them into the closure when it is defined. The Once part of the name represents the fact that the closure can’t take ownership of the same variables more than once, so it can be called only once.
+FnMut can change the environment because it mutably borrows values.
+Fn borrows values from the environment immutably.
+
+move converts any variables captured by reference or mutable reference to owned by value variables.
+
+eg.
+let capture = "hello";
+let closure = move || {
+    println!("rust says {}", capture);
+};
+
+Iterators
+
+let v1 = vec![1, 2, 3];
+let v1_iter = v1.iter();
+for val in v1_iter {
+    println!("Got: {}", val);
+}
+
+collect
+-consumes the iterator and collects the resulting values into a collection data type.
+
+eg.
+let v1: Vec<i32> = vec![1, 2, 3];
+let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();
+assert_eq!(v2, vec![2, 3, 4]);
+
+filter
+-iterate over a collection of struct instances and filter with a closure
+
+fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
+}

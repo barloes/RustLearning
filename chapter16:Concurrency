@@ -1,0 +1,119 @@
+Thread
+
+use std::thread;
+use std::time::Duration;
+
+fn main() {
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("hi number {} from the spawned thread!", i);
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    for i in 1..5 {
+        println!("hi number {} from the main thread!", i);
+        thread::sleep(Duration::from_millis(1));
+    }
+}
+
+OUTPUT:
+hi number 1 from the main thread!
+hi number 1 from the spawned thread!
+hi number 2 from the main thread!
+hi number 2 from the spawned thread!
+hi number 3 from the main thread!
+hi number 3 from the spawned thread!
+hi number 4 from the main thread!
+hi number 4 from the spawned thread!
+hi number 5 from the spawned thread!
+
+JoinHandle
+-wait for its thread to finish
+
+eg.
+handle.join().unwrap();
+
+calling join on the handle blocks the thread currently running until the thread represented by the handle terminates.
+blocking a thread means that thread if prevented from performing work or exiting.
+
+move
+-move is added before the closure force the closure to take ownership of its value
+
+fn main() {
+    let v = vec![1, 2, 3];
+
+    let handle = thread::spawn(move || {
+        println!("Here's a vector: {:?}", v);
+    });
+
+    handle.join().unwrap();
+}
+
+Thread sending each other message
+
+eg.
+let (tx, rx) = mpsc::channel();
+
+thread::spawn(move || {
+    let val = String::from("hi");
+    tx.send(val).unwrap();
+});
+
+let received = rx.recv().unwrap();
+println!("Got: {}", received);
+
+Multiple producer ,single consumer
+
+Shared state concurrency
+
+Mutex
+-mutual exclusion
+
+eg.
+use std::sync::Mutex;
+
+fn main() {
+    let m = Mutex::new(5);
+
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+
+    println!("m = {:?}", m);
+}
+
+Atomic
+
+The a stands for atomic, meaning it’s an atomically reference counted type
+ELI5 :  At this point, you just need to know that atomics work like primitive types but are safe to share across threads.
+
+fn main() {
+
+    //use ARC type
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        
+        //clone the counter
+        let counter = Arc::clone(&counter);
+
+        //use move to take control of te ownership
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
+}
+
+Allowing Transference of Ownership Between Threads with Send

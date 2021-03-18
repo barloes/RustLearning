@@ -1,0 +1,32 @@
+Chapter 15:Smart Pointers
+
+Boxes allow you to store data on the heap rather than the stack. 
+eg.
+
+let b = Box::new(5);
+
+Dereference Pointers
+
+eg.
+let x = 5;
+let y = &x;
+
+assert_eq!(5, x);
+assert_eq!(5, *y);
+
+Dereferencing
+
+fn main() {
+    hello(&m);
+}
+
+Listing 15-12: Calling hello with a reference to a MyBox<String> value, which works because of deref coercion
+Here we’re calling the hello function with the argument &m,
+which is a reference to a MyBox<String> value. Because we implemented the Deref trait on MyBox<T> in Listing 15-10,
+Rust can turn &MyBox<String> into &String by calling deref.
+
+Rust does deref coercion when it finds types and trait implementations in three cases:
+
+From &T to &U when T: Deref<Target=U>
+From &mut T to &mut U when T: DerefMut<Target=U>
+From &mut T to &U when T: Deref<Target=U>
