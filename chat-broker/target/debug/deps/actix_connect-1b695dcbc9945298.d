@@ -1,0 +1,12 @@
+/home/jun/personal/RustLearning/chat-broker/target/debug/deps/actix_connect-1b695dcbc9945298.rmeta: /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs
+
+/home/jun/personal/RustLearning/chat-broker/target/debug/deps/actix_connect-1b695dcbc9945298.d: /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs /home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs
+
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/lib.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connect.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/connector.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/error.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/resolve.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/service.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/ssl/mod.rs:
+/home/jun/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-connect-2.0.0/src/uri.rs:
