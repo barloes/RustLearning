@@ -9,7 +9,8 @@ go get -u github.com/hashrocket/ws
 Summary of this project:  
 Websocket backend in rust  
   
-#Milestone  
+    
+# Milestone  
 - [x] RustOne - working Websocket that can send messages (No Identification) [x]      
 - [ ] RustTwo - working Websocket to update status of products  
     - product can be add(initialised with 0 when it is created),deleted and updated.  
