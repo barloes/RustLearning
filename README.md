@@ -1,5 +1,6 @@
 # Websocket project 
 
+~/go/bin/ws ws://127.0.0.1:8081/ws/
 Summary of this project:
 
 react frontend to list products through websocket to rust backend
