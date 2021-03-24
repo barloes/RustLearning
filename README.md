@@ -3,10 +3,10 @@
 # Starting out for connecting to websocket
 I first install the golang package and run the command to connect to the websocket server.  
   
-go get -u github.com/hashrocket/ws  
-~/go/bin/ws ws://127.0.0.1:8081/ws/  
+1. go get -u github.com/hashrocket/ws  
+2. ~/go/bin/ws ws://127.0.0.1:8081/ws/  
   
-Summary of this project:  
+# Summary of this project:  
 Websocket backend in rust  
   
     
